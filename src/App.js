@@ -1,21 +1,15 @@
-import { useHelloWorldContext } from './hooks/useHelloWorldContext'
-import logo from './logo.svg'
+import { useSiContext } from './hooks/useSiContext'
+import { InforCard } from './componets/InfoCard'
 import './App.css'
 
 function App() {
-  const { helloWorld } = useHelloWorldContext()
+  const { gpuName, gpuTemp } = useSiContext()
+
+  console.log(gpuName)
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <code>Electron-React Boilerplate</code>
-        </p>
-        <span>
-          <code>Electron context: {helloWorld}</code>
-        </span>
-      </header>
+      <InforCard title={gpuName} value={gpuTemp} />
     </div>
   )
 }
